@@ -34,12 +34,12 @@ void setup() {
 void loop() {
 	huskylens.request();
 	if (huskylens.isAppearDirect(HUSKYLENSResultBlock)) {
-		myIot.publish(topic_0, "人脸识别成功");
 		if (huskylens.isAppear(1,HUSKYLENSResultBlock)) {
 			display.setCursorLine(2);
 			display.printLine(mydb.getTag("1"));
 			rgb.write(0, 0x0000FF);
 			myIot.publish(topic_0, mydb.getTag("1"));
+			myIot.publish(topic_0, "人脸识别成功");
 		}
 		else {
 			if (huskylens.isAppear(3,HUSKYLENSResultBlock)) {
@@ -47,6 +47,7 @@ void loop() {
 				display.printLine(mydb.getTag("3"));
 				rgb.write(0, 0x00FF00);
 				myIot.publish(topic_0, mydb.getTag("3"));
+				myIot.publish(topic_0, "人脸识别成功");
 			}
 			else {
 				if (huskylens.isAppear(2,HUSKYLENSResultBlock)) {
@@ -54,6 +55,7 @@ void loop() {
 					display.printLine(mydb.getTag("2"));
 					rgb.write(0, 0xFF6666);
 					myIot.publish(topic_0, mydb.getTag("2"));
+					myIot.publish(topic_0, "人脸识别成功");
 				}
 				else {
 					rgb.write(0, 0xFFFFFF);
