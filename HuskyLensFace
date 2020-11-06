@@ -30,11 +30,11 @@ void setup() {
 	mydb.setServerParameter("http://tinywebdb.appinventor.space/api", "s12345","0f087c10");
 	huskylens.beginI2CUntilSuccess();
 	huskylens.writeAlgorithm(ALGORITHM_FACE_RECOGNITION);
-	myIot.publish(topic_0, "人脸识别成功");
 }
 void loop() {
 	huskylens.request();
 	if (huskylens.isAppearDirect(HUSKYLENSResultBlock)) {
+		myIot.publish(topic_0, "人脸识别成功");
 		if (huskylens.isAppear(1,HUSKYLENSResultBlock)) {
 			display.setCursorLine(2);
 			display.printLine(mydb.getTag("1"));
